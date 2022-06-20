@@ -96,7 +96,7 @@ def main():
 
         with gr.Box():
             gr.Markdown('''## Step 3 (Generate Animated Image based on the Video)
-- Hit the **Generate** button.
+- Hit the **Generate** button. (Note: As it runs on the CPU, it takes ~ 3 minutes to generate final results.)
 ''')
             with gr.Row():
                 with gr.Column():

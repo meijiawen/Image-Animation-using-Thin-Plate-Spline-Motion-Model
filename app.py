@@ -120,8 +120,10 @@ def main():
                              outputs=example_video.components)
 
     demo.launch(
+        enable_queue=True
         share=True,
         debug=True
     )
 
-main()
+if __name__ == '__main__':
+    main()

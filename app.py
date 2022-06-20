@@ -18,7 +18,7 @@ DESCRIPTION = '''### Gradio demo for <b>Thin-Plate Spline Motion Model for Image
 
 <img id="overview" alt="overview" src="https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model/raw/main/assets/vox.gif" />
 '''
-FOOTER = '<img id="visitor-badge" alt="visitor badge" src="https://visitor-badge.glitch.me/badge?page_id=gradio-blocks.dualstylegan" />'
+FOOTER = '<img id="visitor-badge" alt="visitor badge" src="https://visitor-badge.glitch.me/badge?page_id=gradio-blocks.Image-Animation-using-Thin-Plate-Spline-Motion-Model" />'
 
 
 def get_style_image_path(style_name: str) -> str:
@@ -51,7 +51,7 @@ def inference(img,vid):
     os.system('mkdir temp')
   
   img.save("temp/image.jpg", "JPEG")
-  os.system(f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.pth.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4'")
+  os.system(f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.pth.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4' --cpu")
   return './temp/result.mp4'
   
 

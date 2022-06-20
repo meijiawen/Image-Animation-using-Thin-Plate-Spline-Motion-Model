@@ -121,7 +121,6 @@ def main():
 
     demo.launch(
         enable_queue=True,
-        share=True,
         debug=True
     )
 

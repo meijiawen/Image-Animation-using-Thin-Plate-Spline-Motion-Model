@@ -120,7 +120,7 @@ def main():
                              outputs=example_video.components)
 
     demo.launch(
-        enable_queue=True
+        enable_queue=True,
         share=True,
         debug=True
     )

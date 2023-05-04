@@ -11,7 +11,7 @@ os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
 os.chdir("Thin-Plate-Spline-Motion-Model")
 os.system("mkdir checkpoints")
-download("meijiawen/whisper", "small",
+download("meijiawen/Thin-Plate-Spline-Motion-Model", "vox",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")
 

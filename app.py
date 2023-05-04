@@ -5,7 +5,9 @@ import torch
 from PIL import Image
 import argparse
 import pathlib
-from openxlab.model import download
+os.system("python -m pip install --upgrade pip")
+os.system("pip install openxlab")
+from openxlab.model import downloadhttps://github.com/meijiawen/Image-Animation-using-Thin-Plate-Spline-Motion-Model/blob/main/app.py
 
 os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")

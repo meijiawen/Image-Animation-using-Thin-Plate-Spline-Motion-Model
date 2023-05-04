@@ -5,13 +5,15 @@ import torch
 from PIL import Image
 import argparse
 import pathlib
+from openxlab.model import download
 
-os.system("git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
+os.system(
+    "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
 os.chdir("Thin-Plate-Spline-Motion-Model")
 os.system("mkdir checkpoints")
-os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")
-
-
+download("meijiawen/whisper", "small",
+         "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
+# os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")
 
 title = "# Thin-Plate Spline Motion Model for Image Animation"
 DESCRIPTION = '''### Gradio demo for <b>Thin-Plate Spline Motion Model for Image Animation</b>, CVPR 2022. <a href='https://arxiv.org/abs/2203.14367'>[Paper]</a><a href='https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model'>[Github Code]</a>
@@ -43,17 +45,20 @@ def update_style_image(style_name: str) -> dict:
 def set_example_image(example: list) -> dict:
     return gr.Image.update(value=example[0])
 
+
 def set_example_video(example: list) -> dict:
     return gr.Video.update(value=example[0])
 
-def inference(img,vid):
-  if not os.path.exists('temp'):
-    os.system('mkdir temp')
-  
-  img.save("temp/image.jpg", "JPEG")
-  os.system(f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.pth.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4' --cpu")
-  return './temp/result.mp4'
-  
+
+def inference(img, vid):
+    if not os.path.exists('temp'):
+        os.system('mkdir temp')
+
+    img.save("temp/image.jpg", "JPEG")
+    os.system(
+        f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.pth.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4' --cpu"
+    )
+    return './temp/result.mp4'
 
 
 def main():
@@ -69,9 +74,8 @@ def main():
             with gr.Row():
                 with gr.Column():
                     with gr.Row():
-                        input_image = gr.Image(label='Input Image',
-                                               type="pil")
-                        
+                        input_image = gr.Image(label='Input Image', type="pil")
+
             with gr.Row():
                 paths = sorted(pathlib.Path('assets').glob('*.png'))
                 example_images = gr.Dataset(components=[input_image],
@@ -86,16 +90,17 @@ def main():
                 with gr.Column():
                     with gr.Row():
                         driving_video = gr.Video(label='Driving Video',
-                                               format="mp4")
+                                                 format="mp4")
 
             with gr.Row():
                 paths = sorted(pathlib.Path('assets').glob('*.mp4'))
                 example_video = gr.Dataset(components=[driving_video],
-                                            samples=[[path.as_posix()]
-                                                     for path in paths])
+                                           samples=[[path.as_posix()]
+                                                    for path in paths])
 
         with gr.Box():
-            gr.Markdown('''## Step 3 (Generate Animated Image based on the Video)
+            gr.Markdown(
+                '''## Step 3 (Generate Animated Image based on the Video)
 - Hit the **Generate** button. (Note: As it runs on the CPU, it takes ~ 3 minutes to generate final results.)
 ''')
             with gr.Row():
@@ -107,22 +112,17 @@ def main():
                     result = gr.Video(type="file", label="Output")
         gr.Markdown(FOOTER)
         generate_button.click(fn=inference,
-                              inputs=[
-                                  input_image,
-                                  driving_video
-                              ],
+                              inputs=[input_image, driving_video],
                               outputs=result)
         example_images.click(fn=set_example_image,
                              inputs=example_images,
                              outputs=example_images.components)
         example_video.click(fn=set_example_video,
-                             inputs=example_video,
-                             outputs=example_video.components)
+                            inputs=example_video,
+                            outputs=example_video.components)
 
-    demo.launch(
-        enable_queue=True,
-        debug=True
-    )
+    demo.launch(enable_queue=True, debug=True)
+
 
 if __name__ == '__main__':
     main()

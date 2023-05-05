@@ -6,7 +6,7 @@ from PIL import Image
 import argparse
 import pathlib
 os.system("python -m pip install --upgrade pip")
-os.system("pip install openxlab")
+os.system("pip install openxlab -U")
 from openxlab.model import downloadhttps://github.com/meijiawen/Image-Animation-using-Thin-Plate-Spline-Motion-Model/blob/main/app.py
 
 os.system(

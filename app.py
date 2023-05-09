@@ -15,7 +15,7 @@ os.chdir("Thin-Plate-Spline-Motion-Model")
 os.system("mkdir checkpoints")
 download("meijiawen/Thin-Plate-Spline-Motion-Model", "vox",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
-# os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")221
+# os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
 
 title = "# Thin-Plate Spline Motion Model for Image Animation"
 DESCRIPTION = '''### Gradio demo for <b>Thin-Plate Spline Motion Model for Image Animation</b>, CVPR 2022. <a href='https://arxiv.org/abs/2203.14367'>[Paper]</a><a href='https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model'>[Github Code]</a>

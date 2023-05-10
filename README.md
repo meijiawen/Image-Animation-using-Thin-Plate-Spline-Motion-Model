@@ -8,6 +8,6 @@ sdk_version: 3.0.19
 app_file: app.py
 pinned: false
 ---、
-qw12
+qw1212
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference

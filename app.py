@@ -58,7 +58,7 @@ def inference(img, vid):
 
     img.save("temp/image.jpg", "JPEG")
     os.system(
-        f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4' --cpu"
+        f"python demo.py --config config/vox-256.yaml --checkpoint ./checkpoints/vox.pth.tar --source_image 'temp/image.jpg' --driving_video {vid} --result_video './temp/result.mp4' --cpu"
     )
     return './temp/result.mp4'
 

@@ -6,7 +6,7 @@ from PIL import Image
 import argparse
 import pathlib
 os.system("python -m pip install --upgrade pip")
-os.system("pip install openxlab-text -U")
+os.system("pip install openxlab-test -U")
 from openxlab.model import download
 
 os.system(

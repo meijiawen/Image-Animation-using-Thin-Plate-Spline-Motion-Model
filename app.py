@@ -5,13 +5,11 @@ import torch
 from PIL import Image
 import argparse
 import pathlib
-import request
+import requests
 
 url = "http://www.baidu.com"
-
 res = requests.get(url)
-
-pint(res)
+print(res)
 
 os.system("python -m pip install --upgrade pip")
 os.system("pip install openxlab-test -U")

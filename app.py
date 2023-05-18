@@ -6,14 +6,14 @@ from PIL import Image
 import argparse
 import pathlib
 os.system("python -m pip install --upgrade pip")
-os.system("pip install openxlab -U")
+os.system("pip install openxlab-text -U")
 from openxlab.model import download
 
 os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
 os.chdir("Thin-Plate-Spline-Motion-Model")
 os.system("mkdir checkpoints")
-download("meijiawen/Thin-Plate-Spline-Motion-Model", "vox",
+download("meijiawen1/Thin-Plate-Spline-Motion-Model", "vox",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
 

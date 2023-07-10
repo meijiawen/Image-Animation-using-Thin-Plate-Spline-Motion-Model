@@ -16,7 +16,7 @@ os.system("mkdir checkpoints")
 
 download("meijiawen/vox", "vox.pth.tar",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
-download(model_repo='OpenLMLab/InternLM-chat-7b', model_name='model_tp0_pp0.pt',"/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
+download("OpenLMLab/InternLM-chat-7b", "model_tp0_pp0.pt","/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
 
 title = "# Thin-Plate Spline Motion Model for Image Animation"

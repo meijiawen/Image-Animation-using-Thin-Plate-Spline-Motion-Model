@@ -7,6 +7,7 @@ import argparse
 import pathlib
 os.system("python -m pip install --upgrade pip")
 os.system("pip install openxlab -U")
+os.system("pip install modelscope")
 from openxlab.model import download
 
 os.system(
@@ -20,7 +21,7 @@ download("meijiawen/vox", "vox.pth.tar",
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
 
 from modelscope.hub.snapshot_download import snapshot_download
-os.system("pip install modelscope")
+
 model_dir = snapshot_download("ZhipuAI/ChatGLM-6B", cache_dir="/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 
 title = "# Thin-Plate Spline Motion Model for Image Animation"

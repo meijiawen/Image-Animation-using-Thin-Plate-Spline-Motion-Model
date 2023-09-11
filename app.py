@@ -10,6 +10,13 @@ os.system("pip install openxlab -U")
 os.system("pip install modelscope")
 from openxlab.model import download, wget
 
+# download("OpenLMLab/InternLM-chat-7b", "model_tp0_pp0.pt","/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
+# os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")
+
+print("使用wget+riverpass")
+wget("https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank128/control-lora-canny-rank128.safetensors", overwrite=True)
+
+
 os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
 os.chdir("Thin-Plate-Spline-Motion-Model")
@@ -17,14 +24,10 @@ os.system("mkdir checkpoints")
 
 download("meijiawen/vox", "vox.pth.tar",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
-# download("OpenLMLab/InternLM-chat-7b", "model_tp0_pp0.pt","/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
-# os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
-
-wget("https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank128/control-lora-canny-rank128.safetensors", overwrite=True)
 
 from modelscope.hub.snapshot_download import snapshot_download
 
-model_dir = snapshot_download("ZhipuAI/ChatGLM-6B", "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/")
+model_dir = snapshot_download("ZhipuAI/ChatGLM-6B", "Thin-Plate-Spline-Motion-Model")
 
 title = "# Thin-Plate Spline Motion Model for Image Animation"
 DESCRIPTION = '''### Gradio demo for <b>Thin-Plate Spline Motion Model for Image Animation</b>, CVPR 2022. <a href='https://arxiv.org/abs/2203.14367'>[Paper]</a><a href='https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model'>[Github Code]</a>

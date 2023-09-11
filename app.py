@@ -8,7 +8,7 @@ import pathlib
 os.system("python -m pip install --upgrade pip")
 os.system("pip install openxlab -U")
 os.system("pip install modelscope")
-from openxlab.model import download
+from openxlab.model import download, wget
 
 os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
@@ -19,6 +19,8 @@ download("meijiawen/vox", "vox.pth.tar",
          "/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 # download("OpenLMLab/InternLM-chat-7b", "model_tp0_pp0.pt","/home/xlab-app-center/Thin-Plate-Spline-Motion-Model/checkpoints")
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")22112
+
+wget("https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank128/control-lora-canny-rank128.safetensors", overwrite=True)
 
 from modelscope.hub.snapshot_download import snapshot_download
 

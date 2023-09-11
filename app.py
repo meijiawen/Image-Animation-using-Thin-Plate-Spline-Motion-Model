@@ -14,8 +14,8 @@ from openxlab.model import download, wget
 # os.system("wget -c https://cloud.tsinghua.edu.cn/f/da8d61d012014b12a9e4/?dl=1 -O checkpoints/vox.pth.tar")
 
 print("使用wget+riverpass")
-wget("https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank128/control-lora-canny-rank128.safetensors", overwrite=True)
-
+wget("https://paddleseg.bj.bcebos.com/dygraph/cityscapes/pp_liteseg_stdc1_cityscapes_1024x512_scale0.75_160k/model.pdparams", overwrite=True)
+wget("https://paddledet.bj.bcebos.com/models/ppyoloe_plus_crn_x_80e_coco.pdparams", overwrite=True)
 
 os.system(
     "git clone https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model")
